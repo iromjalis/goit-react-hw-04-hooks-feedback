@@ -2,18 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import Notification from "../Notification/Notification";
 
-const Statistics = ({ title, options, total = 0, positivePercentage = 0 }) =>
+const Statistics = ({
+  title,
+  good,
+  neutral,
+  bad,
+  total = 0,
+  positivePercentage = 0,
+}) =>
   total === 0 ? (
     <Notification message="No feedback given"></Notification>
   ) : (
     <div className="StatisticsWrapper">
       <h1>{title}</h1>
       <ul>
-        {options.map((item, i) => (
-          <li key={i}>
-            {item[0]}: {item[1]}
-          </li>
-        ))}
+        <li>good: {good}</li>
+        <li>neutral:{neutral}</li>
+        <li>bad:{bad} </li>
       </ul>
       <p>
         Total: <b>{total}</b>
