@@ -16,9 +16,9 @@ const Statistics = ({
     <div className="StatisticsWrapper">
       <h1>{title}</h1>
       <ul>
-        <li>good: {good}</li>
-        <li>neutral:{neutral}</li>
-        <li>bad:{bad} </li>
+        <li>Good:{good}</li>
+        <li>Neutral:{neutral}</li>
+        <li>Bad:{bad}</li>
       </ul>
       <p>
         Total: <b>{total}</b>

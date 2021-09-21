@@ -8,19 +8,13 @@ import FeedbackOptions from "./components/FeedbackOptions";
 import Statistics from "./components/Statistics";
 
 const App = function App() {
-  // Объявление новой переменной состояния «count»
+  const options = ["good", "neutral", "bad"];
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-
-  const countTotalFeedback = () => {
-    const total = good + neutral + bad;
-
-    return total;
-  };
+  const total = good + neutral + bad;
 
   const positivePercentage = () => {
-    const total = countTotalFeedback();
     const posPercentage = Math.round(Number((good / total) * 100));
     return posPercentage;
   };
@@ -49,20 +43,16 @@ const App = function App() {
     <div className="App">
       <Container>
         <Section title="Feedback:">
-          <FeedbackOptions
-            options={["good", "neutral", "bad"]}
-            handleClick={handleClick}
-          />
+          <FeedbackOptions options={options} handleClick={handleClick} />
         </Section>
 
         <Section>
           <Statistics
             title="Statistics"
-            state={(good, neutral, bad)}
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback()}
+            total={total}
             positivePercentage={positivePercentage()}
           />
         </Section>
